@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: ZeoAlt <zeonightyt@gmail.com>
+Date: Tue, 28 Dec 2021 16:59:58 +0000
+Subject: [PATCH] Fix debug packets
+
+
+diff --git a/src/main/java/net/minecraft/network/Connection.java b/src/main/java/net/minecraft/network/Connection.java
+index 270a882c58fd1a17c4c2afa76afd1ca1826eb31a..ce97bfba11a91a2275dd556b033584ec44bcf85e 100755
+--- a/src/main/java/net/minecraft/network/Connection.java
++++ b/src/main/java/net/minecraft/network/Connection.java
+@@ -331,7 +331,7 @@ public class Connection extends SimpleChannelInboundHandler<Packet<?>> {
+     // Paper end
+ 
+     public void send(Packet<?> packet) {
+-        LOGGER.info(packet)
++        LOGGER.info(packet); // Inescapable
+         this.send(packet, (GenericFutureListener) null);
+     }
+ 
