@@ -1,0 +1,18 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: ZeoAlt <zeonightyt@gmail.com>
+Date: Tue, 28 Dec 2021 17:13:56 +0000
+Subject: [PATCH] Add more debug packets
+
+
+diff --git a/src/main/java/net/minecraft/network/Connection.java b/src/main/java/net/minecraft/network/Connection.java
+index ce97bfba11a91a2275dd556b033584ec44bcf85e..fc4d0eaf97f2e334d1a2264b6f801d489f9e3e74 100755
+--- a/src/main/java/net/minecraft/network/Connection.java
++++ b/src/main/java/net/minecraft/network/Connection.java
+@@ -265,6 +265,7 @@ public class Connection extends SimpleChannelInboundHandler<Packet<?>> {
+             // Paper end - packet limiter
+             try {
+                 Connection.genericsFtw(packet, this.packetListener);
++                LOGGER.info(packet);
+             } catch (RunningOnDifferentThreadException cancelledpackethandleexception) {
+                 ;
+             } catch (ClassCastException classcastexception) {
