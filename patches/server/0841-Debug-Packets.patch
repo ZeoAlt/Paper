@@ -1,0 +1,18 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: ZeoAlt <zeonightyt@gmail.com>
+Date: Tue, 28 Dec 2021 16:26:05 +0000
+Subject: [PATCH] Debug Packets
+
+
+diff --git a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
+index 057fcbc389e54e0c9f7a90a3e8b965cd46db9d58..0c92913588cd9df15a6a0e7dbe4c251cd282804d 100755
+--- a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
++++ b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
+@@ -491,6 +491,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Ser
+ 
+     @Override
+     public void handlePlayerInput(ServerboundPlayerInputPacket packet) {
++        server.LOGGER.info(packet)
+         PacketUtils.ensureRunningOnSameThread(packet, this, this.player.getLevel());
+         this.player.setPlayerInput(packet.getXxa(), packet.getZza(), packet.isJumping(), packet.isShiftKeyDown());
+     }
