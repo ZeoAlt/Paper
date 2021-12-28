@@ -30,4 +30,8 @@ jobs:
                   git config --global user.email "no-reply@github.com"
                   git config --global user.name "Github Actions"
                   ./gradlew applyPatches --stacktrace
-                  ./gradlew build --stacktrace
+                  ./gradlew createReobfBundlerJar
+            - uses: actions/upload-artifact@v2
+              with:
+                name: Package
+                path: build/libs
